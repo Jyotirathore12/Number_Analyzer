@@ -2,10 +2,33 @@
 
 A simple C++ project to analyze numbers and demonstrate clean Git workflow.
 
-## Features
-- Input a number
-- Perform basic analysis (even/odd, prime, etc.)
-- Command-line based
+## Level 1 – Basics
+Implemented using basic C++ constructs:
+- Even / Odd check
+- Prime number check
+- Palindrome number
+- Perfect number
+- Reverse a number
+- Sum of digits
+- Armstrong number
+- Factorization
+- Fibonacci series
+- GCD and LCM
+
+Concepts used:
+- Functions
+- Loops
+- Conditionals
+- switch-case
+- Vectors
+
+## Level 2 – Optimized & Advanced (Planned / In Progress)
+- Optimized factorization using √n
+- Recursive Fibonacci
+- Input validation
+- Better time complexity
+- Code refactoring
+
 
 ## Tech
 - Language: C++
