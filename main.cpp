@@ -26,9 +26,12 @@ vector<int> fibonacciCheck(int n); //to check fabo of a number
 int GCD(int a , int b); //greatest common divisor
 
 int LCM(int a , int b) ; //Least common multiple
+
+void analyzeRange(int l, int r);  //analyze the range 
+
 //main function
 int main(){
-  int n , i,a,b;
+  int n , i,num1,num2, low , high;
   cout <<"Enter a number"<<endl;
   cin>>n;
 
@@ -48,6 +51,7 @@ int main(){
   cout<<" Enter (9) to find fibo series"<<endl;
   cout<<" Enter (10) to find GCD"<<endl;
   cout<<" Enter (11) to find LCM"<<endl;
+  cout<<" Enter (12) Analayze between Ranges"<<endl;
   cout<<"Operations to operate"<<endl;
   //menu driven program 
   cin>>i;
@@ -100,14 +104,21 @@ int main(){
   
   case 10 :
      cout<<"Enter Two numbers for GDC"<<endl;
-     cin>>a>>b;
-     cout<<"GCD : "<<GCD(a,b)<<endl;
+     cin>>num1>>num2;
+     cout<<"GCD : "<<GCD(num1,num2)<<endl;
      break;
   
   case 11 :
      cout<<"Enter Two numbers for LCM"<<endl;
-     cin>>a>>b;
-     cout<<"LCM : "<<LCM(a,b)<<endl;
+     cin>>num1>>num2;
+     cout<<"LCM : "<<LCM(num1,num2)<<endl;
+     break;
+
+  case 12 :
+     cout<<"Enter the ranges"<<endl;
+     cin>>low>>high;
+     if(low > high) swap(low, high);
+     analyzeRange(low,high);
      break;
 
   case 0 : 
@@ -251,4 +262,11 @@ int LCM(int a, int b){
     return (a / GCD(a, b)) * b;
 }
 
+void analyzeRange(int l, int r) {
+
+    for(int i = l; i <= r; i++) {
+        if(prime(i)) cout << i << " is Prime\n";
+        if(palindrome(i)) cout << i << " is Palindrome\n";
+    }
+}
 
