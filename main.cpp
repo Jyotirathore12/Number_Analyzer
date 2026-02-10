@@ -3,6 +3,10 @@
 #include<cmath>
 using namespace std;
 
+/* ---------- GLOBAL PRECOMPUTATION ---------- */
+const int MAXN = 1000000;
+vector<bool> isPrime(MAXN + 1, true);
+
 //function declaration
 
 bool even(int n); //to check number is even or odd
@@ -29,8 +33,13 @@ int LCM(int a , int b) ; //Least common multiple
 
 void analyzeRange(int l, int r);  //analyze the range 
 
+void sieve(); 
+
 //main function
 int main(){
+
+  sieve();   //precompute prime once 
+
   int n , i,num1,num2, low , high;
   cout <<"Enter a number"<<endl;
   cin>>n;
@@ -53,6 +62,7 @@ int main(){
   cout<<" Enter (11) to find LCM"<<endl;
   cout<<" Enter (12) Analayze between Ranges"<<endl;
   cout<<"Operations to operate"<<endl;
+
   //menu driven program 
   cin>>i;
   switch(i)
@@ -134,6 +144,19 @@ int main(){
 }
 
 //function definitions 
+
+//sieve function
+void sieve() {
+    isPrime[0] = isPrime[1] = false;
+    for (int i = 2; i * i <= MAXN; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j <= MAXN; j += i)
+                isPrime[j] = false;
+        }
+    }
+}
+
+
  //even function 
 bool even(int n){
   return n%2==0;
@@ -263,10 +286,14 @@ int LCM(int a, int b){
 }
 
 void analyzeRange(int l, int r) {
+    cout << "\nPrime numbers:\n";
+    for (int i = l; i <= r; i++)
+        if (isPrime[i]) cout << i << " ";
 
-    for(int i = l; i <= r; i++) {
-        if(prime(i)) cout << i << " is Prime\n";
-        if(palindrome(i)) cout << i << " is Palindrome\n";
-    }
+    cout << "\n\nPalindromes:\n";
+    for (int i = l; i <= r; i++)
+        if (palindrome(i)) cout << i << " ";
+
+    cout << endl;
 }
 
